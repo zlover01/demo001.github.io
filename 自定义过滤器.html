@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="../vue1026.js">
+    
+</script>
+<body>
+    <div id="app">
+        {{time}}<br>
+        {{time | datefmt}}
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                time:new Date()
+            },
+            filters:{
+                datefmt:function(input){
+                    var res="";
+                    var year=input.getFullYear();
+                    var month=input.getMonth()+1;
+                    var day=input.getDate();
+                    res=year+'-'+month+'-'+day;
+                    return res;
+                }
+            }
+        })
+</script>
+</body>
+</html>
